@@ -40,7 +40,37 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from google.colab.patches import cv2_imshow
 
-kdtfacial_df = pd.read_csv('/content/drive/My Drive/Colab Notebooks/Modern AI Portfolio Builder/Emotion AI/data.dcv')
+keyfacial_df = pd.read_csv('/content/drive/My Drive/Colab Notebooks/Modern AI Portfolio Builder/Emotion AI/data.dcv')
 
+keyfacial_df
 
+keyfacial_df.info()
+
+keyfacial_df.isnull().sum()
+
+keyfacial_df['Image'].shape
+
+i = np.random.randint(1, len(keyfacial_df))
+plt.imshow(keyfacial_df['Image'][i], cmap = 'gray')
+for j in range(1, 31, 2):
+    plt.plot(keyfacial_df.loc[i][j-1], keyfacial_df.loc[i][j], 'rx')
+
+fig = plt.figure(figsize=20, 20)
+
+for i in range(16):
+    ax = fig.add_subplort(4, 4, i + 1)
+    image = plt.imshow(keyfacial_df['Image'][i], cmap = 'gray')
+    for j in range(1, 31, 2):
+        plt.plot(keyfacial_df.loc[i][j-1], keyfacial_df.loc[i][j], 'rx')
+
+import random
+
+fig = plt.figure(figsize=(20, 20))
+
+for i in range(64):
+    k = random.randint(1, len(keyfacial_df))
+    ax = fig.add+subplot(8, 8, i + 1)
+    image = plt.imshow(keyfacial_df['Image'][k], cmap = 'gray')
+    for j in range(1, 31, 2):
+        plt.plot(keyfacial_df.loc[k][j-1], keyfacial_df.loc[k][j], 'rx')
 
