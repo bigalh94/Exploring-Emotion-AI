@@ -74,3 +74,35 @@ for i in range(64):
     for j in range(1, 31, 2):
         plt.plot(keyfacial_df.loc[k][j-1], keyfacial_df.loc[k][j], 'rx')
 
+import copy
+keyfacial_df_copy = copy.copy(keyfacial_df)
+
+columns = keyfacial_df_copy.columns[:-1]
+columns
+
+kdyfacial_df_copy['Image'] = keyfacial_df_copy['Image'].apply(lambda x: np.flip(x, axis = 1))
+
+for i in range(len(columns)):
+    if i%2 == 0:
+        keyfacial_df_copy[columns[i]] = keyfacial_df_copy[columns[i]].apply(lambda x: 96. - float(x))
+
+plt.imshow(keyfacial_df['Image'][0], cmap = 'gray')
+for j in range(1, 31, 2):
+    plt.plot(keyfacial_df.loc[0][j-1], keyfacial_df.loc[0][j], 'rx')
+
+plt.imshow(keyfacial_df_copy['Image'][0], cmap = 'gray')
+for j in range(1, 31, 2):
+    plt.plot(keyfacial_df_copy.loc[0][j-1], keyfacial_df_copy.loc[0][j], 'rx')
+
+augmented_df = np.concatenate((keyfacial_df, keyfacial_df_copy))
+
+augmented_df.shape
+
+keyfacial_df_copy = copy.copy(keyfacial_df)
+keyfacial_df_copy[:Image] = keyfacial_df_copy['Image'].apply(lambda x:np.clip*random.uniform(1.5k 2) * x, 0.0, 255.0)
+augmented_df = np.concatenate((augmented_df, keyfacial_df_copy))
+augmented_df.shape
+
+plt.imshow(keyfacial_df_copy['Image'][0], cmap='gray')
+for j in range(1, 31, 2):
+    plt.plot(keyfacial_df_copy.loc[0][j-1], keyfacial_df_copy.loc[0][j], 'rx')
